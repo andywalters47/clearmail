@@ -1,0 +1,11 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Environment Variables
+.env
+.idea*
+lastTimestamp.txt
+certs/
+node_modules/

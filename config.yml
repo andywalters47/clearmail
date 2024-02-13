@@ -1,0 +1,74 @@
+settings:
+  myName: Andy Walters
+  myEmail: andywalters@gmail.com
+
+  # if set to false, OpenAI is used
+  useLocalLLM: false
+
+  # maximum number of characters to feed the AI of an email body. too many characters can start to confuse it
+  maxEmailChars: 750
+
+  # max number of emails to process in a single go, probably wise to keep this under 100
+  maxEmailsToProcessAtOnce: 100
+
+  # process any new unread emails every x seconds
+  refreshInterval: 120
+
+  # very simple mechanism to store the last time an email was fetched
+  timestampFilePath: lastTimestamp.txt
+
+  # sortIntoCategoryFolders can be either true or false
+  # if true, emails will be sorted into the folders/labels defined in the categoryFolderNames below
+  # if false, all rejected emails will be moved into rejectedFolderName
+  # NOTE: you must manually create whichever folders are referenced here in gmail as "labels" that match exactly
+  sortIntoCategoryFolders: true
+  rejectedFolderName: AI Rejects
+
+  # if true, mark all rejected emails as unread
+  markAllRejectedEmailsRead: true
+
+  # if true, star all kept emails
+  starAllKeptEmails: true
+
+  # choose either 'server' or 'script'.  'script' is the recommended.
+  runAsServerOrScript: script
+  # port number
+  portNumber: 3003
+
+localLLM:
+  # this is the default for any loaded model with LMStudio
+  postURL: http://localhost:1234/v1/chat/completions
+
+openAI:
+  # recommended gpt-3.5-turbo-0125 as cheap, fast, and relatively accurate
+  model: gpt-4-0125-preview
+
+# define as many folder names as you'd like as long as it's less than what the ai will choke on
+# Note: "Social" is not allowed in gmail as it's reserved, there may be others.
+# Spaces in folder names are fine as long as they case sensitive match your gmail label.
+categoryFolderNames:
+  - News
+  - Social Updates
+  - Blog
+  - Financial
+  - Marketing
+  - Other
+
+# the simpler the rules, the better
+rules:
+  keep: |
+    * security alert or one time password or login
+    * personal message 
+    * personal financial information
+    * any message from someone on LinkedIn or Sales Navigator sent to me personally (reject blogs and newsletters)
+    * someone contacting me to solicit my services or offer me a job
+    * a reply to a message Andy sent or likely sent
+    * transactional email, receipt, or shipping notification
+    * action required to ensure my products and services work properly
+    * reminder about an upcoming event I already booked
+    * from Randall or Ida (my accountants)
+  reject: |
+    * marketing or promotional or discounts or rewards
+    * weekly or daily snapshots
+    * job listings
+    * blogs and news / newsletters
