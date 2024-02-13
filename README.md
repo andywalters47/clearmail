@@ -164,10 +164,6 @@ IMAP_PORT=993
 
 Expanding on Step 4 to include instructions on setting up Node.js on your machine and ensuring you navigate to the correct folder to run `clearmail`:
 
-### Step 4: Run the Process
-
-Before running the `clearmail` process, you need to ensure that Node.js is installed on your system and that you are in the correct directory where `clearmail` is located.
-
 #### Installing Node.js
 
 Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine, and it's required to run `clearmail`. Here's how to install it:
