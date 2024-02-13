@@ -3,7 +3,7 @@ settings:
   myEmail: andywalters@gmail.com
 
   # if set to false, OpenAI is used
-  useLocalLLM: false
+  useLocalLLM: true
 
   # maximum number of characters to feed the AI of an email body. too many characters can start to confuse it
   maxEmailChars: 750
@@ -66,7 +66,6 @@ rules:
     * transactional email, receipt, or shipping notification
     * action required to ensure my products and services work properly
     * reminder about an upcoming event I already booked
-    * from Randall or Ida (my accountants)
   reject: |
     * marketing or promotional or discounts or rewards
     * weekly or daily snapshots

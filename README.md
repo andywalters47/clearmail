@@ -70,6 +70,8 @@ To use clearmail you will need:
 - A Gmail account
 - Node.js installed on your system
 
+Note: this has only been tested for Mac.
+
 ## Setup Instructions
 
 Follow these steps to get clearmail up and running on your system:
@@ -160,13 +162,62 @@ IMAP_PORT=993
 
 ### Step 4: Run the Process
 
-Once you have configured the settings, you can start the process by running:
+Expanding on Step 4 to include instructions on setting up Node.js on your machine and ensuring you navigate to the correct folder to run `clearmail`:
+
+### Step 4: Run the Process
+
+Before running the `clearmail` process, you need to ensure that Node.js is installed on your system and that you are in the correct directory where `clearmail` is located.
+
+#### Installing Node.js
+
+Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine, and it's required to run `clearmail`. Here's how to install it:
+
+1. **Download Node.js**: Visit the [official Node.js website](https://nodejs.org/) to download the installer for your operating system. It is recommended to download the LTS (Long Term Support) version for better stability.
+
+2. **Install Node.js**:
+   - **Windows & macOS**: Run the downloaded installer and follow the on-screen instructions. The installer includes Node.js and npm (Node Package Manager).
+   - **Linux**: You can install Node.js via a package manager. Instructions for different distributions are available on the Node.js website under the [Linux installations guide](https://nodejs.org/en/download/package-manager/).
+
+3. **Verify Installation**: Open a terminal or command prompt and type the following commands to verify that Node.js and npm are installed correctly:
+
+    ```bash
+    node --version
+    npm --version
+    ```
+
+   If the installation was successful, you should see the version numbers for both Node.js and npm.
+
+#### Navigating to the clearmail Directory
+
+Before running the `clearmail` process, make sure you are in the directory where `clearmail` is located:
+
+1. **Open a Terminal or Command Prompt**: Use a terminal on Linux or macOS, or Command Prompt/Powershell on Windows.
+
+2. **Navigate to the clearmail Directory**: Use the `cd` (change directory) command to navigate to the folder where you have `clearmail` installed. For example, if you have `clearmail` in a folder named "clearmail" on your desktop, the command might look like this:
+
+   - On Windows:
+       ```bash
+       cd Desktop\clearmail
+       ```
+   - On Linux or macOS:
+       ```bash
+       cd ~/Desktop/clearmail
+       ```
+
+#### Running clearmail
+
+Once Node.js is installed and you are in the correct directory, you can start `clearmail` by running the following command in your terminal or command prompt:
 
 ```bash
 node server.js
 ```
 
-This will initialize clearmail and begin sorting your emails according to the defined rules.
+This will initialize clearmail and begin sorting your emails according to the defined rules.  It will continue to run at the defined interval and output data about its activities to the shell.
+
+#### Stopping clearmail
+
+To stop the clearmail process type `<ctrl> + c` on Mac.
+
 
 ## Large Language Model (LLM) Choice: Local or OpenAI
 
